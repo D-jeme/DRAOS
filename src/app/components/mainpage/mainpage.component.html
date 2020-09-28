@@ -1,0 +1,63 @@
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul></ul>
+      <ul class="nav navbar-nav navbar-center">
+            <li><a (click)="getArticles()"><img src="https://i.ibb.co/C8RdHfB/logo.png" alt="logo" border="0" align="center"></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <div>
+
+            <!-- <i class="material-icons" style="font-size:40px;color:teal" (click)="openLogin()">account_circle</i> -->
+            <i class="material-icons" style="font-size:40px;color:teal" (click)="cartPreview()">add_shopping_cart</i>
+            <i class="material-icons" style="font-size:40px;color:teal" (click)="logout()">exit_to_app</i>
+          </div>
+        </li>
+      </ul>
+  </div>
+</nav>
+
+<div class="sadrzaj">
+<div  class="vijesti-screen">
+
+  <div class="filter filter-draggable">
+    <div class="filter-heading">Filters</div>
+
+  <div class="okolo">
+      <div class="filter-nav">
+        <button class="btn btn-success active" data-filter="" (click)="getAllArticles()">All</button>
+        <button class="btn btn-primary" data-filter="laptop" (click)="getLaptops()">Laptop</button>
+        <button class="btn btn-primary" data-filter="mobile" (click)="getMobilePhones()">Mobile phone</button>
+        <button class="btn btn-primary" data-filter="camera" (click)="getCameras()">Camera</button>
+      </div>
+
+      <figure  *ngFor="let artikal of filterArtikli" class="vijest">
+        <img  class="imgs"  src={{artikal.img}} >
+        <div class="datum" *ngIf="artikal.popust>0"><span class="dan" >{{artikal.popust}}%</span>
+          <span>SALE</span></div>
+        <figcaption>
+          <div class="naslov">
+          <h3>{{artikal.naziv}}</h3>
+          <span class="cijena">{{artikal.cijena}} KM</span></div>
+          <div class="kratki_tekst"> {{artikal.kratki_tekst}} </div>
+          <button class="dugme" (click)="onClick(artikal.id)">Read more</button>
+        </figcaption><a href="#"></a>
+      </figure>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<!--><h3>Svi artikli</h3>
+<div *ngFor="let artikal of artikli">
+
+
+<i>{{artikal.naziv}}</i>
+<i>{{artikal.kratki_tekst}}</i>
+
+
+</div><-->

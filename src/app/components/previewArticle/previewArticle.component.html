@@ -1,0 +1,72 @@
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul></ul>
+      <ul class="nav navbar-nav navbar-center">
+            <li><a (click)="homePage()"><img src="https://i.ibb.co/C8RdHfB/logo.png" alt="logo" border="0" align="center"></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <div>
+            <!-- <i class="material-icons" style="font-size:40px;color:teal" (click)="openMyProfile()">account_circle</i> -->
+            <i class="material-icons" style="font-size:40px;color:teal" (click)="cartPreview()">add_shopping_cart</i>
+            <i class="material-icons" style="font-size:40px;color:teal" (click)="logout()">exit_to_app</i>
+          </div>
+        </li>
+      </ul>
+  </div>
+</nav>
+
+
+
+
+
+<div class="elektrijada">
+
+<div class='container'>
+
+    <blockquote>
+  <div class="login">
+<img src="{{img}}" class="imgs" >
+  </div>
+      </blockquote>
+
+
+  <div class='block'>
+
+<blockquote class='left-vertical-line'>
+
+  <h3 class="naslov">{{naziv}}</h3>
+
+  <h3>Description</h3>
+  <p class="short_text">{{kratki_tekst}}</p>
+
+  <h3>Specs</h3>
+  <p class="long_text">{{dugi_tekst}}</p>
+
+  <h3 class="leftc">Price</h3><h3 class="rightcijena">{{cijena}}KM</h3>
+  <h3 class="leftc">Old Price</h3><h3 class="rightold">{{stara_cijena}}KM</h3>
+  <h3 class="leftc">Sale</h3>
+  <h3 class="rightsale">{{popust}}%</h3>
+  <button (click)="print(id)">Add to cart</button>
+
+    </blockquote>
+    </div>
+    <div class="error" *ngIf="errorMessage!=''">{{errorMessage}}</div>
+    <div class="poruka" *ngIf="messageUspjesno!=''">{{messageUspjesno}}</div>
+</div>
+
+
+</div>
+
+
+<!--><div class="elektrijada">
+<div class="form-content">
+<div>
+  <h2>SVI KORISNICI</h2>
+  <fieldset class="groupBox" *ngFor="let korisnik of korisnici">
+  <p>{{korisnik.ime}}</p><p>{{korisnik.prezime}}</p><p>{{korisnik.email}}</p>
+  </fieldset>
+</div>
+</div>
+</div><-->
