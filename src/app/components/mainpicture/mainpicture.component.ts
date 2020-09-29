@@ -18,20 +18,23 @@ export class MainpictureComponent implements OnInit {
     emptyArray: boolean;
 
   constructor(private router:Router) {
-        this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
-        if(this.nizArtikala.length == 0) {
+      /*  this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
+        if(this.nizArtikala) {
           this.emptyArray = true;
         } else {
           this.emptyArray = false;
         }
         localStorage.setItem("charts", JSON.stringify(this.nizArtikala));
+        console.log("sta je ovo",this.nizArtikala);*/
+
   }
 
   ngOnInit() {
     this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
     if(this.nizArtikala.length == 0) this.emptyArray = true;
-    console.log("Niiz ", this.nizArtikala);
+
     localStorage.setItem("charts", JSON.stringify(this.nizArtikala));
+    console.log("Niiz ", this.nizArtikala);
   }
 
   removeItem(artikal) {
@@ -57,6 +60,7 @@ export class MainpictureComponent implements OnInit {
 
   getArticles()
   {
+
     localStorage.setItem("charts", JSON.stringify(this.nizArtikala))
     this.router.navigateByUrl('/all');
   }

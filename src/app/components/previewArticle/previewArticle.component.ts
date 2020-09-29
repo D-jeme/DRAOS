@@ -42,10 +42,15 @@ constructor(private _articlesService: ArticlesService, private route: ActivatedR
 
 
   ngOnInit() {
+
+    this.nizArtikala=[];
+    console.log(this.nizArtikala);
+
     this.sub = this.route.params.subscribe(params => {
     this.id = params['id'];
 
-    this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
+if(localStorage.getItem("charts"))
+  this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
   });
 
   PRODUCTS.forEach(product => {
@@ -71,17 +76,23 @@ constructor(private _articlesService: ArticlesService, private route: ActivatedR
         chosenArticle = element;
       }
     });
+console.log("niz artikal je",this.nizArtikala);
 
+
+    if (this.nizArtikala){
     this.nizArtikala.forEach(article => {
       if(article.id == id) {
         exists = true;
       }
     });
-
+}
 
     if (!exists) {
       this.nizArtikala.push(chosenArticle);
-      } else {
+      console.log(this.nizArtikala);
+
+      }
+    else {
       let objIndex = this.nizArtikala.findIndex((obj => obj.id == id));
       this.nizArtikala[objIndex].kolicina += 1;
 
