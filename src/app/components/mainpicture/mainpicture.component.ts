@@ -29,7 +29,7 @@ export class MainpictureComponent implements OnInit {
 
   ngOnInit() {
     this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
-    if(this.nizArtikala.length == 0) this.emptyArray = true;
+    if(this.nizArtikala) this.emptyArray = false;
     console.log("Niiz ", this.nizArtikala);
     localStorage.setItem("charts", JSON.stringify(this.nizArtikala));
   }
