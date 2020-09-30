@@ -44,7 +44,7 @@ constructor(private route: ActivatedRoute,private router:Router) {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
     this.id = params['id'];
-
+    if (localStorage.getItem("charts"))
     this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
   });
 
