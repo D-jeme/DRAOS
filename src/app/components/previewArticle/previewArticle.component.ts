@@ -79,6 +79,7 @@ if(this.nizArtikala)
     });
 
     if (!exists) {
+      if(this.nizArtikala)
       this.nizArtikala.push(chosenArticle);
       } else {
       let objIndex = this.nizArtikala.findIndex((obj => obj.id == id));
