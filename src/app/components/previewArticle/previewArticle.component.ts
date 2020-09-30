@@ -73,7 +73,7 @@ constructor(private route: ActivatedRoute,private router:Router) {
         chosenArticle = element;
       }
     });
-    console.log("chosenArticle:" chosenArticle);
+    console.log("chosenArticle:" ,chosenArticle);
 
     this.nizArtikala.forEach(article => {
       if(article.id == id) {
