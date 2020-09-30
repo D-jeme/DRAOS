@@ -9,7 +9,7 @@ import { Router} from '@angular/router';
   templateUrl: './mainpicture.component.html',
   styleUrls: ['./mainpicture.component.css']
 })
-export class MainpictureComponent implements OnInit {
+export class MainpictureComponent  {
 
   artikli:Array<Artikal>
     errorMessage: String='';
@@ -19,7 +19,7 @@ export class MainpictureComponent implements OnInit {
 
   constructor(private router:Router) {
         this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
-        if(this.nizArtikala.length == 0) {
+        if(this.nizArtikala) {
           this.emptyArray = true;
         } else {
           this.emptyArray = false;
@@ -27,12 +27,6 @@ export class MainpictureComponent implements OnInit {
         localStorage.setItem("charts", JSON.stringify(this.nizArtikala));
   }
 
-  ngOnInit() {
-    this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
-    if(this.nizArtikala.length == 0) this.emptyArray = true;
-    console.log("Niiz ", this.nizArtikala);
-    localStorage.setItem("charts", JSON.stringify(this.nizArtikala));
-  }
 
   removeItem(artikal) {
 
