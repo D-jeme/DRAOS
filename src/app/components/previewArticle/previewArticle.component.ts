@@ -71,7 +71,7 @@ constructor(private route: ActivatedRoute,private router:Router) {
         chosenArticle = element;
       }
     });
-
+if(this.nizArtikala)
     this.nizArtikala.forEach(article => {
       if(article.id == id) {
         exists = true;
