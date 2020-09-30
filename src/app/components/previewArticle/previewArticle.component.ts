@@ -44,6 +44,8 @@ constructor(private route: ActivatedRoute,private router:Router) {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
     this.id = params['id'];
+    console.log("charts",localStorage.getItem("charts"));
+    this.nizArtikala=[];
     if (localStorage.getItem("charts"))
     this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
   });
@@ -71,7 +73,8 @@ constructor(private route: ActivatedRoute,private router:Router) {
         chosenArticle = element;
       }
     });
-if(this.nizArtikala)
+    console.log("chosenArticle:" chosenArticle);
+
     this.nizArtikala.forEach(article => {
       if(article.id == id) {
         exists = true;
@@ -79,7 +82,6 @@ if(this.nizArtikala)
     });
 
     if (!exists) {
-      if(this.nizArtikala)
       this.nizArtikala.push(chosenArticle);
       } else {
       let objIndex = this.nizArtikala.findIndex((obj => obj.id == id));
