@@ -46,8 +46,11 @@ constructor(private route: ActivatedRoute,private router:Router) {
     this.id = params['id'];
     console.log("charts",localStorage.getItem("charts"));
     this.nizArtikala=[];
-    if (localStorage.getItem("charts"))
+    if (localStorage.getItem("charts")!=null)
     this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
+
+    console.log("niz artikala",this.nizArtikala);
+
   });
 
   PRODUCTS.forEach(product => {
@@ -75,6 +78,7 @@ constructor(private route: ActivatedRoute,private router:Router) {
     });
     console.log("chosenArticle:" ,chosenArticle);
 
+        console.log("niz artikala 2",this.nizArtikala);
     this.nizArtikala.forEach(article => {
       if(article.id == id) {
         exists = true;
