@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import{ArticlesService} from '../../services/articles.service';
 import {Artikal} from '../../models/artikal'
 import { PRODUCTS  } from "../../products";
 import { Router} from '@angular/router';
@@ -8,14 +7,13 @@ import { Router} from '@angular/router';
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
   styleUrls: ['./mainpage.component.css'],
-  providers:[ArticlesService]
 })
 export class MainpageComponent implements OnInit {
 
 artikli:Array<Artikal>
 filterArtikli:Array<Artikal>
 
-  constructor(private _articlesService: ArticlesService, private router: Router) {
+  constructor(private router: Router) {
     this.artikli=[];
     this.filterArtikli=[];
    }
@@ -44,7 +42,6 @@ logout()
   }
 
   openPanel(){
-    this.router.navigateByUrl('/dodajsliku');
   }
 
   openMyProfile()
@@ -75,6 +72,7 @@ getMobilePhones() {
     if (element.tip == "mobitel") this.filterArtikli.push(element);
   });
 }
+
 getCameras() {
   this.filterArtikli = [] as Artikal[];
   this.artikli.forEach(element => {

@@ -6,7 +6,7 @@ div.vijesti-screen {
   min-width: 1480px;
   margin-top: 25px;
     background: #16222A;
-    background-image: url('../../assets/images/backgroundimg.jpg');
+    background-image: url('/../../assets/images/backgroundimg.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -169,5 +169,5 @@ h3{
 }
 
 .sadrzaj{
-    background-image: url('../../assets/images/backgroundimg.jpg');
+    background-image: url('/../../assets/images/backgroundimg.jpg');
 }

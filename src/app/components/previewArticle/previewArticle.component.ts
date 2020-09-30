@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ArticlesService } from '../../services/articles.service';
 import {Artikal} from '../../models/artikal'
 import { PRODUCTS  } from "../../products";
 import { CHART_ARTICLES } from "../../chart";
@@ -10,7 +9,6 @@ import { Router} from '@angular/router';
 @Component({
   templateUrl: './previewArticle.component.html',
   styleUrls: ['./previewArticle.component.css'],
-  providers: [ArticlesService],
 })
 export class PreviewArticleComponent implements OnInit, OnDestroy {
   korisnici:Array<any>;
@@ -26,9 +24,11 @@ export class PreviewArticleComponent implements OnInit, OnDestroy {
     stara_cijena: any;
     img: String;
     nizArtikala: Artikal[];
+    errorMessage: String;
+    messageUspjesno: String;
 
 
-constructor(private _articlesService: ArticlesService, private route: ActivatedRoute,private router:Router) {
+constructor(private route: ActivatedRoute,private router:Router) {
 
   this.korisnici=[];
 
@@ -42,15 +42,10 @@ constructor(private _articlesService: ArticlesService, private route: ActivatedR
 
 
   ngOnInit() {
-
-    this.nizArtikala=[];
-    console.log(this.nizArtikala);
-
     this.sub = this.route.params.subscribe(params => {
     this.id = params['id'];
 
-if(localStorage.getItem("charts"))
-  this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
+    this.nizArtikala = JSON.parse(localStorage.getItem("charts")) as Artikal[];
   });
 
   PRODUCTS.forEach(product => {
@@ -76,23 +71,16 @@ if(localStorage.getItem("charts"))
         chosenArticle = element;
       }
     });
-console.log("niz artikal je",this.nizArtikala);
 
-
-    if (this.nizArtikala){
     this.nizArtikala.forEach(article => {
       if(article.id == id) {
         exists = true;
       }
     });
-}
 
     if (!exists) {
       this.nizArtikala.push(chosenArticle);
-      console.log(this.nizArtikala);
-
-      }
-    else {
+      } else {
       let objIndex = this.nizArtikala.findIndex((obj => obj.id == id));
       this.nizArtikala[objIndex].kolicina += 1;
 

@@ -168,7 +168,7 @@ button:hover {
 
 .container {
   background: #16222A;
-  background-image: url('../../assets/images/backgroundimg.jpg');
+  background-image: url('/../../assets/images/backgroundimg.jpg');
 
   background-size: cover;
   background-position: center center;
@@ -251,9 +251,9 @@ blockquote{
 }
 
 body{
-    background-image: url('../../assets/images/backgroundimg.jpg');
+    background-image: url('/../../assets/images/backgroundimg.jpg');
 }
 
 html{
-    background-image: url('../../assets/images/backgroundimg.jpg');
+    background-image: url('/../../assets/images/backgroundimg.jpg');
 }

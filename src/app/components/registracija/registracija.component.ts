@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/users.service';
-import { RegistracijaService } from '../../services/registracija.service';
 import { Osoba } from '../../models/osoba';
 import { OsobaLogin } from '../../models/osobaLogin';
 import { Router} from '@angular/router';
@@ -9,7 +7,6 @@ import { USERS } from "../../users";
 @Component({
   templateUrl: './registracija.component.html',
   styleUrls: ['./registracija.component.css'],
-  providers: [UserService,RegistracijaService],
 })
 export class RegistracijaComponent implements OnInit {
 
@@ -34,7 +31,7 @@ export class RegistracijaComponent implements OnInit {
   expirationDate: String='';
 
 
-constructor(private _userService: UserService,private _registracijaService:RegistracijaService, private router: Router) {
+constructor(private router: Router) {
 
   this.korisnici=[];
  }
@@ -51,11 +48,10 @@ constructor(private _userService: UserService,private _registracijaService:Regis
   {
     this.router.navigateByUrl('/all');
   }
-  print() {
 
+  print() {
     var cardno = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/;
     var expiration = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
-
 
     var expirationDateArray = this.expirationDate.split("/");
     var month;
